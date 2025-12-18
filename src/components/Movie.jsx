@@ -1,9 +1,10 @@
 const Movie = (props) => {
-  const { year, name, id } = props;
+  const { year, name, id, price } = props;
   return (
     <>
       <h4>Name - {name}</h4>
       <h4>Movie Released - {year}</h4>
+      <h4>Ticket Rate - {price}</h4>
     </>
   );
 };
