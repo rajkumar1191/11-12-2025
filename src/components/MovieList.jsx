@@ -1,5 +1,6 @@
 import AddMovie from "./AddMovie";
 import Movie from "./Movie";
+import "./../App.css";
 
 const MovieList = (props) => {
   const { mName, title, year, movies, movieDetails } = props;
@@ -19,27 +20,30 @@ const MovieList = (props) => {
       <hr />
       <h4>Movie List - {movies.length}</h4>
       <h5>{mName}</h5>
-      {sortedPhotos.map((movie) => (
-        <Movie
-          key={movie.id}
-          year={movie.year}
-          name={movie.name}
-          price={movie.price}
-          id={movie.id}
-        />
-      ))}
-      <hr />
+      <div className="movie-container">
+        {sortedPhotos.map((movie) => (
+          <Movie
+            key={movie.id}
+            year={movie.year}
+            name={movie.name}
+            price={movie.price}
+            id={movie.id}
+          />
+        ))}
+      </div>
 
       <h4>Premium Movies</h4>
-      {filterData.map((movie) => (
-        <Movie
-          key={movie.id}
-          year={movie.year}
-          name={movie.name}
-          price={movie.price}
-          id={movie.id}
-        />
-      ))}
+      <div className="movie-container">
+        {filterData.map((movie) => (
+          <Movie
+            key={movie.id}
+            year={movie.year}
+            name={movie.name}
+            price={movie.price}
+            id={movie.id}
+          />
+        ))}
+      </div>
     </>
   );
 };

@@ -1,11 +1,13 @@
+import "./../App.css";
+
 const Movie = (props) => {
-  const { year, name, id, price } = props;
+  const { year, name, price } = props;
   return (
-    <>
-      <h4>Name - {name}</h4>
+    <div className="card">
+      <h4 className="heading">Name - {name}</h4>
       <h4>Movie Released - {year}</h4>
       <h4>Ticket Rate - {price}</h4>
-    </>
+    </div>
   );
 };
 

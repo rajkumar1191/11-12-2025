@@ -1,12 +1,14 @@
 import MovieList from "./components/MovieList";
 import About from "./components/About";
 import "./App.css";
+import style from "./App1.module.css";
 import { useState } from "react";
 
 function App() {
   const name = "ABCD";
   const title = "React Tutorial";
   const year = 2026;
+  const isLow = false;
 
   let movieList = [
     {
@@ -54,8 +56,21 @@ function App() {
 
   return (
     <>
-      <h1>Dashboard</h1>
-      <h3>{name}</h3>
+      <h1
+        style={{
+          color: isLow ? "red" : "green",
+          fontSize: isLow ? "2rem" : "1.5rem",
+        }}
+      >
+        100
+      </h1>
+      <h3
+        className={
+          isLow ? "heading-withlowbalance" : `heading ${style.heading} ${style.heading} ${style.heading}`
+        }
+      >
+        {name}
+      </h3>
       <MovieList
         mName={name}
         title={title}
