@@ -13,6 +13,9 @@ const initialState = {
   },
 };
 
+//parent -> data -> child -> data -> grandchild -> props - props drilling
+// useContext API to avoid props drilling
+
 const validateField = (name, value) => {
   if (name == "mname" && value.trim() === "") {
     return "Name cannot be empty";
@@ -50,7 +53,7 @@ const formReducer = (state, action) => {
   }
 };
 
-const AddMovie = ({ movieDetails }) => {
+const AddMovie = ({ movieDetails, mName }) => {
   const [formData, dispatch] = useReducer(formReducer, initialState);
   const { form, errors } = formData;
   // console.log(errors)
@@ -85,7 +88,7 @@ const AddMovie = ({ movieDetails }) => {
 
   return (
     <>
-      <h5>Movie Details</h5>
+      <h5>Movie Details - {mName}</h5>
       <form onSubmit={submit}>
         <input
           type="text"

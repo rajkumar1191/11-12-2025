@@ -1,14 +1,15 @@
 import MovieList from "./components/MovieList";
 import About from "./components/About";
 import "./App.css";
-import style from "./App1.module.css";
+// import style from "./App1.module.css";
 import { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
   const name = "ABCD";
   const title = "React Tutorial";
   const year = 2026;
-  const isLow = false;
+  // const isLow = false;
 
   let movieList = [
     {
@@ -56,7 +57,7 @@ function App() {
 
   return (
     <>
-      <h1
+      {/* <h1
         style={{
           color: isLow ? "red" : "green",
           fontSize: isLow ? "2rem" : "1.5rem",
@@ -70,7 +71,8 @@ function App() {
         }
       >
         {name}
-      </h3>
+      </h3> */}
+      <Header />
       <MovieList
         mName={name}
         title={title}

@@ -1,8 +1,12 @@
 import AddMovie from "./AddMovie";
 import Movie from "./Movie";
 import "./../App.css";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const MovieList = (props) => {
+  const { isLoggedIn } = useContext(AuthContext);
+
   const { mName, title, year, movies, movieDetails } = props;
   console.log(mName, title, year, movies);
 
@@ -16,10 +20,12 @@ const MovieList = (props) => {
 
   return (
     <>
-      <AddMovie movieDetails={handleMovieDetails} />
+      <AddMovie movieDetails={handleMovieDetails} mName={mName} />
       <hr />
-      <h4>Movie List - {movies.length}</h4>
-      <h5>{mName}</h5>
+      <h4>
+        Movie List - {movies.length} - {isLoggedIn ? "true" : "false"}
+      </h4>
+      {/* <h5>{mName}</h5> */}
       <div className="movie-container">
         {sortedPhotos.map((movie) => (
           <Movie
