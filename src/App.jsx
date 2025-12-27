@@ -1,86 +1,31 @@
-import MovieList from "./components/MovieList";
 import About from "./components/About";
 import "./App.css";
-// import style from "./App1.module.css";
-import { useState } from "react";
-import Header from "./components/Header";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
+import AddMovie from "./components/AddMovie";
+import ProtectedRoute from "./guard/ProtectedRoute";
+import MovieList from "./components/MovieList";
 
 function App() {
-  const name = "ABCD";
-  const title = "React Tutorial";
-  const year = 2026;
-  // const isLow = false;
-
-  let movieList = [
-    {
-      id: 1,
-      name: "ABC",
-      year: 2020,
-      price: 180,
-    },
-    {
-      id: 2,
-      name: "ABC1",
-      year: 2021,
-      price: 180,
-    },
-    {
-      id: 3,
-      name: "ABC2",
-      year: 2022,
-      price: 120,
-    },
-    {
-      id: 4,
-      name: "ABC3",
-      year: 2023,
-      price: 200,
-    },
-    {
-      id: 5,
-      name: "ABC4",
-      year: 2024,
-      price: 100,
-    },
-  ];
-  const [movies, setMovies] = useState(movieList);
-
-  const handleMovieDetails = (data) => {
-    console.log(data);
-
-    // movieList = [...movieList, data];
-
-    setMovies((prev) => [...prev, data]);
-
-    console.log(movies);
-  };
-
   return (
     <>
-      {/* <h1
-        style={{
-          color: isLow ? "red" : "green",
-          fontSize: isLow ? "2rem" : "1.5rem",
-        }}
-      >
-        100
-      </h1>
-      <h3
-        className={
-          isLow ? "heading-withlowbalance" : `heading ${style.heading} ${style.heading} ${style.heading}`
-        }
-      >
-        {name}
-      </h3> */}
-      <Header />
-      <MovieList
-        mName={name}
-        title={title}
-        year={year}
-        movies={movies}
-        movieDetails={handleMovieDetails}
-      />
-      <About />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
+          {/* <Route path="/" element={<Dashboard />} /> */}
+          <Route path="/movielist" element={<MovieList />} />
+          <Route path="/addmovie" element={<AddMovie />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </>
   );
 }
