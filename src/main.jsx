@@ -4,16 +4,32 @@ import "./index.css";
 import App from "./App.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </BrowserRouter>
+    </Provider>
   </StrictMode>
 );
+
+/* 
+npm install @reduxjs/toolkit react-redux
+
+store - holds the centralized object/ global state of data
+action - we will describe what happened / payload
+reducer - state, action
+dispatch - send a action from the component to the store
+provider - wrapper which is wrap the whole application
+selector - used to get the data from store
+
+*/
 
 /*
 
