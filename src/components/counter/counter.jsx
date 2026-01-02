@@ -12,7 +12,7 @@ export default function Counter() {
   return (
     <div style={{ padding: "1rem" }}>
       <h4>Counter</h4>
-      <h3>Value: {count}</h3>
+      <h3 data-testid="count">{count}</h3>
       <div>
         <button onClick={() => dispatch(increament())}>+</button>
         <button onClick={() => dispatch(decreament())}>-</button>
