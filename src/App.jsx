@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import AddMovie from "./components/AddMovie";
 import ProtectedRoute from "./guard/ProtectedRoute";
 import MovieList from "./components/MovieList";
+import AdvancedHooks from "./components/AdvancedHooks";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           {/* <Route path="/" element={<Dashboard />} /> */}
           <Route path="/movielist" element={<MovieList />} />
           <Route path="/addmovie" element={<AddMovie />} />
+          <Route path="/advanced" element={<AdvancedHooks />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

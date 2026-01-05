@@ -12,6 +12,7 @@ const Header = () => {
       <nav>
         <Link to="/movielist">Home</Link>
         <Link to="/addmovie">Add Movie</Link>
+        <Link to="/advanced">Advanced Hooks</Link>
       </nav>
       <span>
         {!isLoggedIn && <button onClick={login}>Login</button>}

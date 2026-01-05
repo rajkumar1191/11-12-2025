@@ -1,7 +1,7 @@
 // import AddMovie from "./AddMovie";
 import Movie from "./Movie";
 import "./../App.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useId, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import AddMovieRef from "./AddMovieRef";
 import axios from "axios";
@@ -11,7 +11,9 @@ const MovieList = () => {
   const mName = "ABCD";
   const title = "React Tutorial";
   const year = 2026;
-
+    const id1 = useId();
+    const id2 = useId();
+console.log("Unique IDs:", id1, id2);
   const [movies, setMovies] = useState([]);
   console.log(mName, title, year, movies);
 
